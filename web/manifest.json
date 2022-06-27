@@ -1,6 +1,6 @@
 {
-    "name": "flutter_fb",
-    "short_name": "flutter_fb",
+    "name": "flutter_facebook_login_demo",
+    "short_name": "flutter_facebook_login_demo",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

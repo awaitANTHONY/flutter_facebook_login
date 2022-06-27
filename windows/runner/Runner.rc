@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.awaitanthony" "\0"
-            VALUE "FileDescription", "flutter_fb" "\0"
+            VALUE "FileDescription", "flutter_facebook_login_demo" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "flutter_fb" "\0"
+            VALUE "InternalName", "flutter_facebook_login_demo" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2022 com.awaitanthony. All rights reserved." "\0"
-            VALUE "OriginalFilename", "flutter_fb.exe" "\0"
-            VALUE "ProductName", "flutter_fb" "\0"
+            VALUE "OriginalFilename", "flutter_facebook_login_demo.exe" "\0"
+            VALUE "ProductName", "flutter_facebook_login_demo" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

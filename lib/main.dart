@@ -7,7 +7,7 @@ void main() {
   runApp(const MyApp());
 }
 
-String prettyPrintx(Map json) {
+String prettyPrint(Map json) {
   JsonEncoder encoder = const JsonEncoder.withIndent('  ');
   String pretty = encoder.convert(json);
   return pretty;
@@ -37,16 +37,21 @@ class _MyAppState extends State<MyApp> {
       _checking = false;
     });
     if (accessToken != null) {
+      print("is Logged:::: ${prettyPrint(accessToken.toJson())}");
       // now you can call to  FacebookAuth.instance.getUserData();
       final userData = await FacebookAuth.instance.getUserData();
       // final userData = await FacebookAuth.instance.getUserData(fields: "email,birthday,friends,gender,link");
       _accessToken = accessToken;
-
-      print(userData);
       setState(() {
         _userData = userData;
       });
     }
+  }
+
+  void _printCredentials() {
+    print(
+      prettyPrint(_accessToken!.toJson()),
+    );
   }
 
   Future<void> _login() async {
@@ -62,6 +67,7 @@ class _MyAppState extends State<MyApp> {
 
     if (result.status == LoginStatus.success) {
       _accessToken = result.accessToken;
+      _printCredentials();
       // get the user data
       // by default we get the userId, email,name and picture
       final userData = await FacebookAuth.instance.getUserData();
@@ -103,23 +109,23 @@ class _MyAppState extends State<MyApp> {
                     children: <Widget>[
                       Text(
                         _userData != null
-                            ? (_userData!).toString()
+                            ? prettyPrint(_userData!)
                             : "NO LOGGED",
                       ),
                       const SizedBox(height: 20),
                       _accessToken != null
                           ? Text(
-                              (_accessToken!.toJson()).toString(),
+                              prettyPrint(_accessToken!.toJson()),
                             )
                           : Container(),
                       const SizedBox(height: 20),
                       CupertinoButton(
                         color: Colors.blue,
+                        onPressed: _userData != null ? _logOut : _login,
                         child: Text(
                           _userData != null ? "LOGOUT" : "LOGIN",
                           style: const TextStyle(color: Colors.white),
                         ),
-                        onPressed: _userData != null ? _logOut : _login,
                       ),
                       const SizedBox(height: 50),
                     ],
